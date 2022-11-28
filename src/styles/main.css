@@ -1,0 +1,22 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+@layer base {
+}
+
+@layer components {
+
+}
+
+.font-primary{
+	font-family: Inter;
+}
+
+
+.color-primary{
+	color: #DC2626;
+}
+
+.bgcolor-primary{
+	background-color: #DC2626;
+}
