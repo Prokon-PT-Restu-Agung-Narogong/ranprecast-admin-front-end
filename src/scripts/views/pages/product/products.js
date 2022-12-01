@@ -8,7 +8,7 @@ const Products = {
     </section>
     <section class="w-5/6 content">
     	<div class="w-full h-[84px] flex">
-    		<h1 class="my-auto ml-[24px] text-[24px] font-[600] font-primary">Products</h1>
+    		<h1 class="my-auto ml-[24px] text-[24px] font-[600] font-primary">Produk</h1>
     	</div>
     </div>
 		`;
