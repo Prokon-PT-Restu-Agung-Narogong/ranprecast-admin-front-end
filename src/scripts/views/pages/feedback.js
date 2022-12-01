@@ -8,7 +8,8 @@ const feedback = {
     </section>
     <section class="w-5/6 content">
     	<div class="w-full h-[84px] flex">
-    		<h1 class="my-auto ml-[24px] text-[24px] font-[600] font-primary">Feedback</h1>
+    		<h1 class="my-auto ml-[24px] text-[24px] font-[600] font-primary basis-3/4">Feedback</h1>
+    		<p class="my-auto mr-[50px] text-[16px] text-right font-[600] font-primary basis-1/4">Hello, Adminxx</p>
     	</div>
       <div class="w-full min-h-full bg-gray-200 flex">
         <ul class="feedback-list w-11/12 flex-col h-auto my-[40px] mx-auto">
