@@ -50,7 +50,8 @@ module.exports = (env) => {
       }),
       new webpack.ProvidePlugin({
         $: "jquery",
-        jQuery: "jquery"
+        jQuery: "jquery",
+        Tabel2Excel : 'table2Excel'
       }),
     ],
     mode : env.mode

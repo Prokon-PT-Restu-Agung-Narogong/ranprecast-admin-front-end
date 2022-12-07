@@ -1,5 +1,6 @@
 import App from './views/app';
 import '../styles/main.css';
+import '../styles/dataTables.jqueryui.min.css';
 import 'lazysizes';
 import 'lazysizes/plugins/parent-fit/ls.parent-fit';
 

@@ -65,7 +65,7 @@ const sidebar = {
 						</ul>
 					</li>
 
-					<a href="">
+					<a href="#/feedback">
 						<li class="flex pl-[37px] py-[10px] hover:bg-red-200">
 							<img alt="icon">
 							<span class="ml-[15px]">Hasil Feedback</span>

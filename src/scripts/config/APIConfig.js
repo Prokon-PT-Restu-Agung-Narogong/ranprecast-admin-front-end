@@ -1,17 +1,21 @@
 class APIConfig {
-	baseUrl = "";
+    baseUrl = "";
 
-	constructor(){
-		this.baseUrl = "http://localhost:3000/api/"
-	}
+    constructor(){
+        this.baseUrl = "http://localhost:3000/api"
+    }
 
-	async request({request,method}) {
+    async requestGET({request}) {
         return await $.ajax({
-            type: method,
+            type: "GET",
             url: `${this.baseUrl}/${request}`,
         }).then((response, status) => {
             return (status !== 'error') ? response : status;
         });
+    }
+
+    async requestPOST({request,data}) {
+        $.post(`${this.baseUrl}/${request}`,data)
     }
 
 }
