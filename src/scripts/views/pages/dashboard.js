@@ -2,7 +2,7 @@ import sidebar from '../components/layouts/sidebar.js';
 import { Chart } from 'chart.js/auto'
 import ContentData from '../../data/ContentData';
 import dt from 'datatables.net';
-import 'table2excel';
+import exportFromJSON from 'export-from-json'
 const dashboard = {
   async init() {
     this.dataAPI = new ContentData();
@@ -65,8 +65,11 @@ const dashboard = {
           <canvas id="chartUsingISP" class="max-w-[50%] max-h-[300px]" width="300" height="400"></canvas>
         </div>
       </section>
-      <section class="w-full mt-[40px] p-4 bg-white rounded-md">
-        <button class="download-data">Download Data</button>
+      <section class="w-full mt-[40px] p-4 bg-white rounded-md flex flex-col">
+        <div class="w-full flex my-2">
+          <h3 class="mb-[20px] text-left font-primary text-black font-[500] text-[20px]">Table Visitors</h3>
+          <button class="download-data bgcolor-primary p-2 ml-auto text-white">Download Data</button>
+        </div>
         <div class="w-full table_users">
           <table id="table_id" class="w-full table-fixed text-center mdl-data-table">
               <thead>
@@ -614,7 +617,7 @@ const dashboard = {
       this.filterBy = 'year';
       this.refreshCanva()
       await this.chartVisitorsCall({
-        dateFrom : '2020-01-01',
+        dateFrom : this.dateFrom,
         dateTo : this.dateTo,
         filterBy: 'Year'
       });
@@ -643,7 +646,6 @@ const dashboard = {
         filterBy: this.filterBy
       });
     })
-
   },
   async refreshCanva(){
       $('.chartVisitors #chartVisitors').remove()
@@ -675,7 +677,7 @@ const dashboard = {
               <tbody>
               </tbody>
           </table>
-        `)
+        `);
 
   },
   async showTables(data){
@@ -732,6 +734,16 @@ const dashboard = {
         ]
     })
   },
+  async json2Excel(){
+    const data = await this.filterDashboard({
+      dateFrom : this.dateFrom,
+      dateTo : this.dateTo,
+      filterBy : 'all'
+    })
+    const fileName = 'download'
+    const exportType =  exportFromJSON.types.xls
+    exportFromJSON({ data, fileName, exportType })
+  },
   async afterRender() {
    await this.chartVisitorsCall({
       dateFrom : this.dateFrom,
@@ -741,11 +753,10 @@ const dashboard = {
     sidebar.afterRender();
     await this.eventOnClickVisitors()
     await this.dateButtonEvent();
-    const Table2Excel = window.Table2Excel;
-    const table2excel = new Table2Excel();
-    $(".download-data").click(function(){
-      table2excel.export($("#table_id"))
+    $(".download-data").click(async ()=>{
+      await this.json2Excel();
     });
+
   },
 };
 
