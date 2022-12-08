@@ -26,6 +26,12 @@ class ContentData extends APIConfig{
 		})
 	}
 
+	async getDataPortofolioByID(id){
+		return await this.requestGET({
+			request : `portofolio/${id}`,
+		})
+	}
+
 	async getDataProduk(){
 		return await this.requestGET({
 			request : "produk",

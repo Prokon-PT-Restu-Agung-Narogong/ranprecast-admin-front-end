@@ -4,6 +4,8 @@ import products from "../views/pages/product/products";
 import createProducts from "../views/pages/product/createProducts";
 import updateProducts from "../views/pages/product/updateProducts";
 import feedback from "../views/pages/feedback";
+import indexPortofolio from "../views/pages/portofolio/indexPortofolio";
+import updatePortofolio from "../views/pages/portofolio/updatePortofolio";
 
 const routes = {
   "/": dashboard,
@@ -13,6 +15,8 @@ const routes = {
   '/products' : products,
   '/create-product' : createProducts,
   '/update-product' : updateProducts,
+  '/portofolio' : indexPortofolio,
+  '/update-portofolio/:id' : updatePortofolio,
   '/feedback' : feedback,
 };
 
