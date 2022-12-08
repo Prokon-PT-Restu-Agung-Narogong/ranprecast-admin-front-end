@@ -3,8 +3,8 @@ import dt from 'datatables.net';
 import ContentData from '../../../data/ContentData';
 const protofolio = {
   async init() {
-    const dataAPI = new ContentData();
-    this.data = await dataAPI.getDataPortofolio();
+    this.dataAPI = new ContentData();
+    this.data = await this.dataAPI.getDataPortofolio();
     return `
     <section class="w-1/6 sidebar">
     	${sidebar.init()}
@@ -26,11 +26,11 @@ const protofolio = {
           <table id="table_id" class="table-fixed w-full h-full text-sm text-center">
             <thead class="text-semibold text-[15px] bg-gray-300 ">
               <tr>
-                <th class="px-5 py-2 w-[5%]">No.</th>
-                <th class="px-5 py-2 w-[5%]">ID</th>
-                <th class="px-5 py-2 w-[60%]">Deskripsi</th>
-                <th class="px-5 py-2 w-[10%]">Gambar</th>
-                <th class="px-5 py-2 w-[20%]">Aksi</th>
+                <th class="px-5 py-2">No.</th>
+                <th class="px-5 py-2">ID</th>
+                <th class="px-5 py-2 w-[50%]">Deskripsi</th>
+                <th class="px-5 py-2">Gambar</th>
+                <th class="px-5 py-2">Aksi</th>
               </tr>
             </thead>
             <tbody>
@@ -54,13 +54,18 @@ const protofolio = {
           <a href="#/update-portofolio/${e.id}">
             <button class="p-2 bg-blue-500"><img alt="icon" src="icons/edit.png" class="w-[20px] h-[20px]"/></button>
           </a>
-          <button class="p-2 bg-red-500"><img alt="icon" src="icons/hapus.png" class="w-[20px] h-[20px]"/></button>
+          <a href="#/delete-portofolio/${e.id}">
+            <button class="delete p-2 bg-red-500" data-primary-key="${e.id}"><img alt="icon" src="icons/hapus.png" class="w-[20px] h-[20px]"/></button>
+          </a>
           `
-
         })
         index++;
       })
       return dataCustom;
+  },
+  deleteData(){
+
+      
   },
   async showTables(data){
     $('#table_id').DataTable({
@@ -69,7 +74,7 @@ const protofolio = {
         "autoWidth": false,
         'pageLength': 5,
         "lengthMenu": [5, 10, 15, 20],
-        "processing": true,
+        "processing": false,
         "language": {
             "processing": '<div class="d-flex justify-content-center"><div class="spinner-border" role="status"><span class="sr-only">Loading...</span></div></div>'
         },
@@ -112,7 +117,9 @@ const protofolio = {
     })
   },
   async afterRender() {
-    await this.showTables(this.customData(this.data))
+    await this.showTables(this.customData(this.data)).then((e)=>{
+      this.deleteData()
+    })
   	sidebar.afterRender();
   },
 };

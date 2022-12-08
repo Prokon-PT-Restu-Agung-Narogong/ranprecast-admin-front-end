@@ -58,7 +58,6 @@ class ContentData extends APIConfig{
 			request : "visitors",
 		})
 	}
-
 }
 
 export default ContentData;

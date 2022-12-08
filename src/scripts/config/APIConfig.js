@@ -20,6 +20,16 @@ class APIConfig {
       })
     }
 
+    async requestPOSTWithoutForm({request,data}) {
+      return await $.ajax({
+            type: "POST",
+            url: `${this.baseUrl}/${request}`,
+            data : data
+        }).then((response, status) => {
+            return (status !== 'error') ? response : status;
+        });
+    }
+
 }
 
 
