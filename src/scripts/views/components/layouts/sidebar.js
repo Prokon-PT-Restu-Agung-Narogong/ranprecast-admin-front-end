@@ -9,14 +9,7 @@ const sidebar = {
 							<span class="ml-[15px]">Dashboard</span>
 						</li>
 					</a>
-
-					<a href="#/profile">
-						<li class="flex pl-[37px] py-[10px] hover:bg-red-200">
-							<img alt="icon">
-							<span class="ml-[15px]">Profil</span>
-						</li>
-					</a>
-
+					
 					<li class="py-[10px] daftar-produk ">
 						<div class="flex hover:bg-red-200 py-[10px] w-full pl-[37px] daftar-produk-button cursor-pointer">
 							<img alt="icon">
