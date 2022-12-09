@@ -8,7 +8,10 @@ const dashboard = {
     this.dataAPI = new ContentData();
     this.dateFrom = new Date();
     this.dateFrom.setMonth(this.dateFrom.getMonth()-6);
+    this.dateFrom = this.dateFrom.toISOString().substring(0,10);
     this.dateTo = new Date();
+    this.dateTo = this.dateTo.toISOString().substring(0,10);
+    console.log(this.dateFrom);
     this.filterBy = 'date';
     return `
     <section class="w-1/6 sidebar">
@@ -261,6 +264,7 @@ const dashboard = {
       }
 
       this.allData = ()=>{
+        console.log(dataFilter)
         return dataFilter
       }
     });
@@ -524,7 +528,6 @@ const dashboard = {
       filterBy : filterBy
     });
 
-
     if(filterBy.toUpperCase() == 'Date'.toUpperCase()){
       await this.chartVisitorsByDayProses(dataDayFilter);
     }else if(filterBy.toUpperCase() == 'Month'.toUpperCase()){
@@ -584,7 +587,7 @@ const dashboard = {
       dateTo : dateTo,
       filterBy : 'all'
     })
-
+    console.log(this.users)
     this.showTables(this.users);
   },
   async showUserLength(length){
@@ -624,9 +627,9 @@ const dashboard = {
     })
   },
   async dateButtonEvent(){
-    $('#dateFrom').val(this.dateFrom.toISOString().substring(0,10));
+    $('#dateFrom').val(this.dateFrom);
     this.dateTo = new Date();
-    $('#dateTo').val(this.dateTo.toISOString().substring(0,10));
+    $('#dateTo').val(this.dateTo);
     $('#dateFrom').on('change',async()=>{
       this.dateFrom = $('#dateFrom').val();
       this.refreshCanva();
