@@ -63,10 +63,6 @@ const protofolio = {
       })
       return dataCustom;
   },
-  deleteData(){
-
-      
-  },
   async showTables(data){
     $('#table_id').DataTable({
         "responsive": true,
@@ -117,9 +113,7 @@ const protofolio = {
     })
   },
   async afterRender() {
-    await this.showTables(this.customData(this.data)).then((e)=>{
-      this.deleteData()
-    })
+    await this.showTables(this.customData(this.data))
   	sidebar.afterRender();
   },
 };
