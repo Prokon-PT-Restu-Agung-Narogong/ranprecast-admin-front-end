@@ -9,21 +9,32 @@ import indexPortofolio from "../views/pages/portofolio/indexPortofolio";
 import updatePortofolio from "../views/pages/portofolio/updatePortofolio";
 import createPortofolio from "../views/pages/portofolio/createPortofolio";
 import deletePortofolio from "../views/pages/portofolio/deletePortofolio";
+import about from "../views/pages/content/about";
+import updateabout from "../views/pages/content/updateabout";
+import contact from "../views/pages/content/contact";
+import updatecontact from "../views/pages/content/updatecontact";
+import superiority from "../views/pages/content/superiority";
+import updatesuperiority from "../views/pages/content/updatesuperiority";
 
 const routes = {
   "/": dashboard,
-  '/home' : dashboard,
-  '/dashboard' : dashboard,
-  '/profile' : profile,
-  '/update-product/:id' : updateProducts,
-  '/create-product' : createProducts,
-  '/delete-product/:id' : deleteProducts,
-  '/products' : indexProducts,
-  '/portofolio' : indexPortofolio,
-  '/update-portofolio/:id' : updatePortofolio,
-  '/delete-portofolio/:id' : deletePortofolio,
-  '/create-portofolio' : createPortofolio,
-  '/feedback' : feedback,
+  "/home": dashboard,
+  "/dashboard": dashboard,
+  "/profile": profile,
+  "/products": products,
+  "/create-product": createProducts,
+  "/update-product": updateProducts,
+  "/portofolio": indexPortofolio,
+  "/update-portofolio/:id": updatePortofolio,
+  "/delete-portofolio/:id": deletePortofolio,
+  "/create-portofolio": createPortofolio,
+  "/feedback": feedback,
+  "/about": about,
+  "/updateabout": updateabout,
+  "/contact": contact,
+  "/updatecontact": updatecontact,
+  "/superiority": superiority,
+  "/updatesuperiority": updatesuperiority,
 };
 
 export default routes;
