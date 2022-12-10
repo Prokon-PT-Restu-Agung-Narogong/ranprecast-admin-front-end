@@ -19,7 +19,7 @@ const updateabout = {
           <form action="/action_page.php">
             <div class="md:grid gap-2 grid-cols-2 md:w-full md:my-4">
               <div>
-                  <div>
+                  <div class="mb-3">
                       <p><b>Logo Perusahaan</b></p>
                   </div>
                   <div class="md:flex md:w-full">
@@ -30,17 +30,17 @@ const updateabout = {
               </div>
               
               <div class=" md:flex flex-col ">
-                  <div>
-                      <p><b>Nama Perusahaan</b></p>
-                  </div>
-                  <div>
-                    <input type="text" id="default-input" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:placeholder-gray-300 dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                  </div>
+                <div class="mb-3">
+                    <p><b>Nama Perusahaan</b></p>
+                </div>
+                <div>
+                  <input type="text" id="default-input" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:placeholder-gray-300 dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                </div>
               </div>
             </div>
 
             <div class="md:flex flex-col my-4">
-              <div>
+              <div class="mb-3">
                 <p><b>Deskripsi</b></p>
               </div>
               <div>
@@ -50,7 +50,7 @@ const updateabout = {
 
             <div class="md:grid gap-2 grid-cols-2 my-4 md:w-full">
               <div>
-                <div>
+                <div class="mb-3">
                   <p><b>Visi</b></p>
                 </div>
                 <div>
@@ -59,8 +59,8 @@ const updateabout = {
               </div>
             
               <div class=" md:flex flex-col">
-                <div>
-                    <p><b>Misi</b></p>
+                <div class="mb-3">
+                  <p><b>Misi</b></p>
                 </div>
                 <div>
                   <input type="text" id="large-input" class="block w-full p-4  border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-blue-500  dark:border-gray-300 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500">
@@ -69,7 +69,7 @@ const updateabout = {
             </div>
 
             <div class="md:flex flex-col my-4 md:w-full">
-              <div>
+              <div class="mb-3">
                 <p><b>Gambar Profil Perusahaan</b></p>
               </div>
               <div class="flex items-center justify-center w-full">

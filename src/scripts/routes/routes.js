@@ -12,6 +12,9 @@ import about from "../views/pages/content/about";
 import updateabout from "../views/pages/content/updateabout";
 import contact from "../views/pages/content/contact";
 import updatecontact from "../views/pages/content/updatecontact";
+import superiority from "../views/pages/content/superiority";
+import updatesuperiority from "../views/pages/content/updatesuperiority";
+
 const routes = {
   "/": dashboard,
   "/home": dashboard,
@@ -29,6 +32,8 @@ const routes = {
   "/updateabout": updateabout,
   "/contact": contact,
   "/updatecontact": updatecontact,
+  "/superiority": superiority,
+  "/updatesuperiority": updatesuperiority,
 };
 
 export default routes;

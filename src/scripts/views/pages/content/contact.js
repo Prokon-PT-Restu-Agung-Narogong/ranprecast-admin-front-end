@@ -110,7 +110,7 @@ const contact = {
               <div>
                 <button type="submit" class="px-7 mt-10 py-3 bg-blue-500 text-white font-semibold text-[13px]
                 leading-tight rounded mx-auto hover:bg-blue-500 hover:shadow-md focus:bg-blue-500 focus:shadow-md focus:outline-none focus:ring-0
-                active:bg-blue-500 active:shadow-md transition duration-150 ease-in-out">Simpan</button> 
+                active:bg-blue-500 active:shadow-md transition duration-150 ease-in-out">Update Konten</button> 
               </div>
             </div>
           </div>
