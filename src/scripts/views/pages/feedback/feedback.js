@@ -1,25 +1,23 @@
-import sidebar from '../components/layouts/sidebar.js';
-import ContentData from '../../data/ContentData';
+import sidebar from '../../components/layouts/sidebar.js';
+import ContentData from '../../../data/ContentData';
+import navbar from "../../components/layouts/navbar";
+
 const feedback = {
   async init() {
     this.dataAPI = new ContentData();
     this.data = await this.dataAPI.getDataFeedback();
-    console.log(this.data)
     return `
     <section class="w-1/6 sidebar">
-    	${sidebar.init()}
+      ${sidebar.init()}
     </section>
     <section class="w-5/6 content h-full">
-    	<div class="w-full h-[84px] flex">
-    		<h1 class="my-auto ml-[24px] text-[24px] font-[600] font-primary basis-3/4">Feedback</h1>
-    		<p class="my-auto mr-[50px] text-[16px] text-right font-[600] font-primary basis-1/4">Hello, Adminxx</p>
-    	</div>
+      ${navbar.init("Feedback")}
       <div class="w-full min-h-full bg-gray-200 flex">
         <ul class="feedback-list w-11/12 flex-col h-[89vh] py-[40px] mx-auto overflow-x-scroll">
         </ul>
-    	</div>
+      </div>
     </div>
-		`;
+    `;
   },
   showFeedbackItem(){
     this.data.forEach((e)=>{
@@ -54,11 +52,14 @@ const feedback = {
             <div>
               <p class="text-[10px] leading-[15px] mt-[16px] font-medium md:text-[15px] md:leading-[20px] text-gray-600">${data.deskripsi}</p>
             </div>
+            <a href="#/delete-feedback/${data.id}">
+              <button class="delete p-2 mt-4 bg-red-500 text-primary text-white font-[200]" data-primary-key="${data.id}">Hapus</button>
+            </a>
           </li>`
   },
   async afterRender() {
     this.showFeedbackItem()
-  	sidebar.afterRender();
+    sidebar.afterRender();
   },
 };
 

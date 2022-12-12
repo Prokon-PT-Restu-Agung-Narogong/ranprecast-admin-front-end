@@ -1,5 +1,6 @@
 import sidebar from "../../components/layouts/sidebar.js";
 import ContentData from '../../../data/ContentData';
+import navbar from "../../components/layouts/navbar";
 
 const updatecontact = {
   async init() {
@@ -10,11 +11,7 @@ const updatecontact = {
     	${sidebar.init()}
     </section>
     <section class="w-5/6 content">
-    	<div class="w-full h-[84px] flex">
-    		<h1 class="my-auto ml-[24px] text-[24px] font-[600] font-primary basis-3/4">Update Kontak Perusahaan</h1>
-    		<p class="my-auto mr-[50px] text-[16px] text-right font-[600] font-primary basis-1/4">Hello, Adminxx</p>
-    	</div>
-    </div>
+    	${navbar.init("Update Kontak")}
 
     <div class="w-full min-h-full bg-gray-200 flex">
       <div class="block p-12 mt-[35px] mx-auto rounded-md bg-white w-11/12 lg:h-[600px]">
@@ -26,7 +23,7 @@ const updatecontact = {
                     <p><b>Alamat 1</b></p>
                     </div>
                     <div>
-                    <input type="text" value="${this.data.alamat_1}" id="alamat_1" class="block w-full p-4  border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-blue-500  dark:border-gray-300 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                    <input type="text" value="${this.data.alamat_1}" id="alamat_1" name="alamat_1" class="block w-full p-4  border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-blue-500  dark:border-gray-300 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500">
                     </div>
                 </div>
                 <div class=" md:flex flex-col">
@@ -34,7 +31,7 @@ const updatecontact = {
                         <p><b>Alamat 2</b></p>
                     </div>
                     <div>
-                    <input type="text" value="${this.data.alamat_2}" id="alamat_2" class="block w-full p-4  border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-blue-500  dark:border-gray-300 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                    <input type="text" value="${this.data.alamat_2}" id="alamat_2" name="alamat_2" class="block w-full p-4  border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-blue-500  dark:border-gray-300 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500">
                     </div>
                 </div>
                 </div>
@@ -45,7 +42,7 @@ const updatecontact = {
                             <p><b>Telepon</b></p>
                         </div>
                         <div>
-                            <input type="text" value="${this.data.telepon}"  id="telepon" class="block w-full p-4  border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-blue-500  dark:border-gray-300 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            <input type="text" value="${this.data.telepon}"  id="telepon" name="telepon" class="block w-full p-4  border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-blue-500  dark:border-gray-300 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500">
                         </div>
                     </div>
                     <div class=" md:flex flex-col">
@@ -53,7 +50,7 @@ const updatecontact = {
                             <p><b>Email</b></p>
                         </div>
                         <div>
-                            <input type="email"  value="${this.data.email}" id="email" class="block w-full p-4  border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-blue-500  dark:border-gray-300 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            <input type="email"  value="${this.data.email}" id="email" name="email" class="block w-full p-4  border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-blue-500  dark:border-gray-300 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500">
                         </div>
                     </div>
                 </div>
@@ -64,7 +61,7 @@ const updatecontact = {
                             <p><b>Whatsapp 1</b></p>
                         </div>
                         <div>
-                            <input type="text" value="${this.data.whatsapp_1}" id="whatsapp_1" class="block w-full p-4  border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-blue-500  dark:border-gray-300 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            <input type="text" value="${this.data.whatsapp_1}" id="whatsapp_1" name="whatsapp_1" class="block w-full p-4  border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-blue-500  dark:border-gray-300 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500">
                         </div>
                     </div>
                     <div class=" md:flex flex-col">
@@ -72,7 +69,7 @@ const updatecontact = {
                             <p><b>Whatsapp 2</b></p>
                         </div>
                         <div>
-                            <input type="text" value="${this.data.whatsapp_2}" id="whatsapp_2" class="block w-full p-4  border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-blue-500  dark:border-gray-300 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            <input type="text" value="${this.data.whatsapp_2}" id="whatsapp_2" name="whatsapp_2" class="block w-full p-4  border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-blue-500  dark:border-gray-300 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500">
                         </div>
                     </div>
                 </div>
@@ -83,7 +80,7 @@ const updatecontact = {
                             <p><b>Link Instagram</b></p>
                         </div>
                         <div>
-                            <input type="text" value="${this.data.link_instagram}" id="link_instagram" class="block w-full p-4  border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-blue-500  dark:border-gray-300 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            <input type="text" value="${this.data.link_instagram}" id="link_instagram"  name="link_instagram" class="block w-full p-4  border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-blue-500  dark:border-gray-300 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500">
                         </div>
                     </div>
                     <div class=" md:flex flex-col">
@@ -91,7 +88,7 @@ const updatecontact = {
                             <p><b>Link Youtube</b></p>
                         </div>
                         <div>
-                            <input type="text" value="${this.data.link_youtube}" id="link_youtube" class="block w-full p-4  border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-blue-500  dark:border-gray-300 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            <input type="text" value="${this.data.link_youtube}" id="link_youtube" name="link_youtube"  class="block w-full p-4  border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-blue-500  dark:border-gray-300 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500">
                         </div>
                     </div>
                 </div>
@@ -108,6 +105,28 @@ const updatecontact = {
       </div>
     </div>
 		`;
+  },
+  validateForm(){
+    $("#form").validate({
+      rules: {
+        alamat_1 : {
+          required : true,
+            maxlength: 84,
+        },
+       alamat_2 : {
+          required : true,
+            maxlength: 84,
+        },
+        telepon : {
+          required : true,
+            maxlength: 84,
+        },
+        email : {
+          required : true,
+            maxlength: 84,
+        },
+      }
+    });
   },
   postData(){
     $('#form').submit((e)=>{
@@ -137,6 +156,7 @@ const updatecontact = {
   },
   async afterRender() {
     this.postData();
+    this.validateForm();
     sidebar.afterRender();
   },
 };

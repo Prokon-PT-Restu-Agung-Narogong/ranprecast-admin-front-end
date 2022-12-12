@@ -20,3 +20,9 @@
 .bgcolor-primary{
 	background-color: #DC2626;
 }
+
+label.error{
+	color: #DC2626;
+	font-family: Inter;
+	font-size: 13px;
+}

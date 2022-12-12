@@ -1,17 +1,16 @@
 import UrlParser from '../../../routes/url-parser';
 import ContentData from '../../../data/ContentData';
-
-const deleteProtofolio = {
+const deleteFeedback = {
   async init() {
     this.id = UrlParser.parseActiveUrlWithoutCombiner().id;
     this.contentData = new ContentData()
     await this.contentData.requestPOSTWithoutForm({
-      request : `produk/delete`,
+      request : `testimoni/delete`,
       data : {
         id : this.id,
       }
     }).then((e)=>{
-      window.location.href = "#/products"
+      window.location.href = "#/feedback"
     })
     return '';
   },
@@ -19,4 +18,4 @@ const deleteProtofolio = {
   },
 };
 
-export default deleteProtofolio;
+export default deleteFeedback;

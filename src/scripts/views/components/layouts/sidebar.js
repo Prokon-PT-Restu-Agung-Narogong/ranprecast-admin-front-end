@@ -1,5 +1,7 @@
 const sidebar = {
 	init(){
+		let dataUserAdmin = JSON.parse(window.sessionStorage.getItem('user'));
+		let checkSuperAdmin = dataUserAdmin.type == "superadmin" ? true : false;
 		return `
 			<nav class="w-full h-[100vh] bg-red-600 flex flex-col">
 				<ul class="w-full text-white mx-auto mt-[87px] flex flex-col">
@@ -7,6 +9,13 @@ const sidebar = {
 						<li class="flex pl-[37px] py-[10px] hover:bg-red-200">
 							<img alt="icon" src="icons/sidebar-1.png" width="20" height="20" class="w-[20px] h-[20px]">
 							<span class="ml-[15px]">Dashboard</span>
+						</li>
+					</a>
+
+					<a href="#/users" class="${checkSuperAdmin ? "show" : "hidden"}">
+						<li class="flex pl-[37px] py-[10px] hover:bg-red-200">
+							<img alt="icon" src="icons/sidebar-2.png" width="20" height="20" class="w-[20px] h-[20px]">
+							<span class="ml-[15px]">Users Admin</span>
 						</li>
 					</a>
 					
@@ -74,7 +83,7 @@ const sidebar = {
 						</li>
 					</a>
 
-					<a href="">
+					<a href="#/login">
 						<li class="flex pl-[37px] py-[10px] hover:bg-red-200">
 							<img alt="icon" src="icons/sidebar-6.png" width="20" height="20" class="w-[20px] h-[20px]">
 							<span class="ml-[15px]">Logout</span>

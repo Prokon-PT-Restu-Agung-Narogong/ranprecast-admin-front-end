@@ -14,7 +14,6 @@ const updateabout = {
     		<h1 class="my-auto ml-[24px] text-[24px] font-[600] font-primary basis-3/4">Update Tentang Perusahaan</h1>
     		<p class="my-auto mr-[50px] text-[16px] text-right font-[600] font-primary basis-1/4">Hello, Adminxx</p>
     	</div>
-    </div>
 
     <div class="w-full min-h-full bg-gray-200 flex">
       <div class="block p-12 mt-[35px] mx-auto rounded-md bg-white w-11/12 lg:h-[780px]">
@@ -38,8 +37,9 @@ const updateabout = {
                     <p><b>Nama Perusahaan</b></p>
                 </div>
                 <div>
-                  <input type="text" value="${this.dataTentang.nama}" id="nama_tentang" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-[20px]  dark:placeholder-gray-300 dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                  <input type="text" value="${this.dataTentang.nama}" id="nama_tentang" name="nama" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-[20px]  dark:placeholder-gray-300 dark:focus:ring-blue-500 dark:focus:border-blue-500">
                 </div>
+                <label for="nama_tentang" class="text-red-600"></label>
               </div>
             </div>
 
@@ -48,7 +48,7 @@ const updateabout = {
                 <p><b>Deskripsi</b></p>
               </div>
               <div>
-                <textarea type="text" id="deskripsi_tentang" class="block w-full p-4  border border-gray-300 rounded-lg bg-gray-50 sm:text-sm focus:ring-blue-500 focus:border-blue-500  dark:border-gray-300 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500">${this.dataTentang.deskripsi}</textarea>
+                <textarea type="text" id="deskripsi_tentang" name="deskripsi" class="block w-full p-4  border border-gray-300 rounded-lg bg-gray-50 sm:text-sm focus:ring-blue-500 focus:border-blue-500  dark:border-gray-300 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500">${this.dataTentang.deskripsi}</textarea>
               </div>
             </div>
 
@@ -58,7 +58,7 @@ const updateabout = {
                   <p><b>Visi</b></p>
                 </div>
                 <div>
-                  <textarea type="text" id="visi_tentang" class="block w-full p-4 min-h-[200px]  border border-gray-300 rounded-lg bg-gray-50 sm:text-sm focus:ring-blue-500 focus:border-blue-500  dark:border-gray-300 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500">${this.dataTentang.visi}</textarea>
+                  <textarea type="text" id="visi_tentang" name="visi" class="block w-full p-4 min-h-[200px]  border border-gray-300 rounded-lg bg-gray-50 sm:text-sm focus:ring-blue-500 focus:border-blue-500  dark:border-gray-300 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500">${this.dataTentang.visi}</textarea>
                 </div>
               </div>
             
@@ -67,7 +67,7 @@ const updateabout = {
                   <p><b>Misi</b></p>
                 </div>
                 <div>
-                  <textarea type="text" id="misi_tentang" class="block w-full p-4 min-h-[200px]  border border-gray-300 rounded-lg bg-gray-50 sm:text-sm focus:ring-blue-500 focus:border-blue-500  dark:border-gray-300 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500">${this.dataTentang.misi}</textarea>
+                  <textarea type="text" id="misi_tentang" name="misi" class="block w-full p-4 min-h-[200px]  border border-gray-300 rounded-lg bg-gray-50 sm:text-sm focus:ring-blue-500 focus:border-blue-500  dark:border-gray-300 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500">${this.dataTentang.misi}</textarea>
                 </div>
               </div>
             </div>
@@ -84,11 +84,32 @@ const updateabout = {
     </div>
 		`;
   },
+  validateForm(){
+    $("#form_tentang").validate({
+      rules: {
+        nama : {
+          required : true,
+            maxlength: 35,
+        },
+        deskripsi : {
+          required : true,
+          maxlength : 715,
+        },
+        visi : {
+          required : true,
+          maxlength : 831
+        },
+        misi : {
+          required : true,
+          maxlength : 831
+        }
+      }
+    });
+  },
   postData(){
     $('#form_tentang').submit((e)=>{
       let photo = document.getElementById("gambar_tentang").files[0];
       e.preventDefault()
-      console.log('asdsad');
 
       let formData = new FormData();
       formData.append("image", photo);
@@ -110,6 +131,7 @@ const updateabout = {
   },
   async afterRender() {
     this.postData()
+    this.validateForm()
     sidebar.afterRender();
   },
 };

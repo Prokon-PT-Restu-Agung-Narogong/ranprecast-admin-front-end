@@ -1,6 +1,8 @@
 import sidebar from "../../components/layouts/sidebar.js";
 import UrlParser from '../../../routes/url-parser';
 import ContentData from "../../../data/ContentData";
+import navbar from "../../components/layouts/navbar";
+
 
 const updatesuperiority = {
   async init() {
@@ -13,11 +15,7 @@ const updatesuperiority = {
     	${sidebar.init()}
     </section>
     <section class="w-5/6 content">
-    	<div class="w-full h-[84px] flex">
-    		<h1 class="my-auto ml-[24px] text-[24px] font-[600] font-primary basis-3/4">Update Tentang Perusahaan</h1>
-    		<p class="my-auto mr-[50px] text-[16px] text-right font-[600] font-primary basis-1/4">Hello, Adminxx</p>
-    	</div>
-    </div>
+    	${navbar.init("Update Keunggulan")}
 
     <div class="w-full min-h-full bg-gray-200 flex">
       <div class="block p-12 mt-[35px] mx-20 rounded-md bg-white w-7/12 lg:h-[550px]">
@@ -49,7 +47,7 @@ const updatesuperiority = {
                         <p><b>Deskripsi</b></p>
                     </div>
                     <div>
-                        <textarea id="deskripsi_keunggulan" type="text" placeholder="Pengerjaan proyek di kota XXX" class="block w-full p-4 border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-blue-500  dark:border-gray-300 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500">${this.data.deskripsi}</textarea>
+                        <textarea id="deskripsi_keunggulan" name="deskripsi" type="text" placeholder="Pengerjaan proyek di kota XXX" class="block w-full p-4 border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-blue-500  dark:border-gray-300 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500">${this.data.deskripsi}</textarea>
                     </div>
                 </div>
 
@@ -65,6 +63,16 @@ const updatesuperiority = {
       </div>
     </div>
 		`;
+  },
+  validateForm(){
+    $("#form_keunggulan").validate({
+      rules: {
+        deskripsi : {
+          required : true,
+          maxlength : 41,
+        },
+      }
+    });
   },
   postData(){
     $('#form_keunggulan').submit((e)=>{
@@ -88,6 +96,7 @@ const updatesuperiority = {
   },
   async afterRender() {
     this.postData();
+    this.validateForm()
     sidebar.afterRender();
   },
 };

@@ -3,26 +3,30 @@ import ContentData from "../../../data/ContentData";
 import navbar from "../../components/layouts/navbar";
 
 
-const superiority = {
+const users = {
   async init() {
     this.dataAPI = new ContentData();
-    this.data = await this.dataAPI.getDataQuality();
+    this.data = await this.dataAPI.getDataUserAdmin();
     return `
     <section class="w-1/6 sidebar">
     	${sidebar.init()}
     </section>
     <section class="w-5/6 content">
-    	${navbar.init("Keunggulan")}
+    	${navbar.init("Users Admin")}
     <div class="w-full min-h-full bg-gray-200 flex p-[12px]">
       <div class="block p-9 mt-[35px] mx-auto rounded-md bg-white w-11/12 min-h-[610px]">
+        <div class="flex">
+          <a href="#/create-users" class="text-white text-semibold text-[13px] bg-green-500 hover:bg-green-500 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-md text-sm px-3 py-2 text-center inline-flex items-center mr-2">
+            <i class="fa-solid fa-circle-plus py-1 mr-[5px] w-[20px] h-[20px]"></i> Admin
+          </a>
+        </div>
         <div class="relative mt-[20px] w-full h-[460px]">
           <table id="table_id" class="table-fixed w-full h-full text-sm">
             <thead class="text-semibold text-[15px] bg-gray-300 ">
               <tr>
                 <th class="px-5 py-2">No.</th>
-                <th class="px-5 py-2">ID</th>
-                <th class="px-5 py-2 w-[50%] text-center">Deskripsi</th>
-                <th class="px-5 py-2">Icon</th>
+                <th class="px-5 py-2 text-center">Username</th>
+                <th class="px-5 py-2">Password</th>
                 <th class="px-5 py-2 mx-auto">Aksi</th>
               </tr>
             </thead>
@@ -40,12 +44,14 @@ const superiority = {
     data.forEach((e) => {
       dataCustom.push({
         no: index,
-        id: e.id,
-        deskripsi: e.deskripsi,
-        gambar: `<img src="${e.icon}" class="w-[25px] h-[25px] object-cover">`,
+        username: e.username,
+        password: e.password,
         aksi: `
-          <a href="#/update-superiority/${e.id}" class="w-full">
+          <a href="#/update-users/${e.id}" class="${e.type == "superadmin" ? "hidden" : ""}">
             <button class="p-2 bg-blue-500"><img alt="icon" src="icons/edit.png" class="w-[20px] h-[20px]"/></button>
+          </a>
+          <a href="#/delete-users/${e.id}" class="${e.type == "superadmin" ? "hidden" : ""}">
+            <button class="delete p-2 bg-red-500" data-primary-key="${e.id}"><img alt="icon" src="icons/hapus.png" class="w-[20px] h-[20px]"/></button>
           </a>
           `,
       });
@@ -81,17 +87,12 @@ const superiority = {
           className: "align-middle",
         },
         {
-          data: "id",
-          orderable: false,
-          className: "align-middle",
-        },
-        {
-          data: "deskripsi",
+          data: "username",
           orderable: true,
           className: "align-middle",
         },
         {
-          data: "gambar",
+          data: "password",
           orderable: false,
           className: "align-middle",
         },
@@ -109,4 +110,4 @@ const superiority = {
   },
 };
 
-export default superiority;
+export default users;

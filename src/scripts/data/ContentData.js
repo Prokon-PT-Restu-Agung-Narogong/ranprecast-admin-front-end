@@ -57,6 +57,17 @@ class ContentData extends APIConfig{
 			request : "visitors",
 		})
 	}
+	async getDataUserAdmin(){
+		return await this.requestGET({
+			request : "useradmin",
+		})
+	}
+
+	async getDataUserAdminByID(id){
+		return await this.requestGET({
+			request : `useradmin/${id}`,
+		})
+	}
 }
 
 export default ContentData;

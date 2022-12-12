@@ -3,6 +3,8 @@ import { Chart } from 'chart.js/auto'
 import ContentData from '../../data/ContentData';
 import dt from 'datatables.net';
 import exportFromJSON from 'export-from-json'
+import navbar from "../components/layouts/navbar";
+
 const dashboard = {
   async init() {
     this.dataAPI = new ContentData();
@@ -17,9 +19,7 @@ const dashboard = {
     	${sidebar.init()}
     </section>
     <section class="w-5/6 content bg-gray-200 p-8">
-    	<div class="w-full h-[84px] flex">
-    		<h1 class="my-auto ml-[24px] text-[24px] font-[600] font-primary">Dashboard</h1>
-    	</div>
+    	${navbar.init("Dashboard")}
       <section class="flex">
         <ul class="flex">
           <li class="by-dates mx-[15px] bg-gray-600 px-6 text-white font-primary cursor-pointer">Hari</li>
@@ -263,7 +263,6 @@ const dashboard = {
       }
 
       this.allData = ()=>{
-        console.log(dataFilter)
         return dataFilter
       }
     });
@@ -586,7 +585,6 @@ const dashboard = {
       dateTo : dateTo,
       filterBy : 'all'
     })
-    console.log(this.users)
     this.showTables(this.users);
   },
   async showUserLength(length){
@@ -649,6 +647,7 @@ const dashboard = {
     })
   },
   async refreshCanva(){
+      
       $('.chartVisitors #chartVisitors').remove()
       await $('.chartVisitors').append('<canvas id="chartVisitors" class="max-w-[100%] max-h-[400px]" height="400"></canvas>')
 
@@ -682,6 +681,7 @@ const dashboard = {
 
   },
   async showTables(data){
+
     $('#table_id').DataTable({
         "responsive": true,
         "pagingType": "simple_numbers",

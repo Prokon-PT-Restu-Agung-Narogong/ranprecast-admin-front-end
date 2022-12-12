@@ -1,6 +1,8 @@
 import sidebar from '../../components/layouts/sidebar.js';
 import dt from 'datatables.net';
 import ContentData from '../../../data/ContentData';
+import navbar from "../../components/layouts/navbar";
+
 const products = {
   async init() {
     this.dataAPI = new ContentData();
@@ -10,11 +12,7 @@ const products = {
       ${sidebar.init()}
     </section>
     <section class="w-5/6 content">
-      <div class="w-full h-[84px] flex">
-        <h1 class="my-auto ml-[24px] text-[24px] font-[600] font-primary basis-3/4">Produk</h1>
-        <p class="my-auto mr-[24px] text-[16px] text-right font-[600] font-primary basis-1/4">Hello, Adminxx</p>
-      </div>
-    </div>
+      ${navbar.init("Produk")}
     <div class="w-full min-h-full bg-gray-200 flex p-[12px]">
       <div class="block p-9 mt-[35px] mx-auto rounded-md bg-white w-11/12 min-h-[610px]">
         <div class="flex">
@@ -102,42 +100,42 @@ const products = {
             {
                 "data": "no",
                 "orderable": false,
-                "className": "align-middle break-all"
+                "className": "align-middle break-all truncate"
             },
             {
                 "data": "nama",
                 "orderable": false,
-                "className": "align-middle break-all"
+                "className": "align-middle break-all truncate"
             },
             {
                 "data": "deskripsi",
                 "orderable": true,
-                "className": "align-middle break-all"
+                "className": "align-middle break-all truncate"
             },
             {
                 "data": "specs",
                 "orderable": true,
-                "className": "align-middle break-all"
+                "className": "align-middle break-all truncate"
             },
             {
                 "data": "jenis",
                 "orderable": true,
-                "className": "align-middle break-all"
+                "className": "align-middle break-all truncate"
             },
             {
                 "data": "gambar",
                 "orderable": false,
-                "className": "align-middle break-all"
+                "className": "align-middle break-all truncate"
             },
             {
                 "data": "stok",
                 "orderable": false,
-                "className": "align-middle break-all"
+                "className": "align-middle break-all truncate"
             },
             {
                 "data": "aksi",
                 "orderable": false,
-                "className": "align-middle break-all"
+                "className": "align-middle break-all truncate"
             }
         ]
     })

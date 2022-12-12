@@ -1,4 +1,5 @@
 import sidebar from "../../components/layouts/sidebar.js";
+import header from "../../components/layouts/header";
 import ContentData from '../../../data/ContentData';
 
 const about = {
@@ -14,7 +15,6 @@ const about = {
     		<h1 class="my-auto ml-[24px] text-[24px] font-[600] font-primary basis-3/4">Tentang Perusahaan</h1>
     		<p class="my-auto mr-[50px] text-[16px] text-right font-[600] font-primary basis-1/4">Hello, Adminxx</p>
     	</div>
-    </div>
 
     <div class="w-full min-h-full bg-gray-200 flex">
       <div class="block p-12 mt-[35px] mx-auto rounded-md bg-white w-11/12 lg:h-[850px]">
@@ -76,6 +76,7 @@ const about = {
     </div>
 		`;
   },
+  
   backgroundList(data){
     let html = "";
     let template = (src)=>{
