@@ -628,7 +628,6 @@ const dashboard = {
   },
   async dateButtonEvent(){
     $('#dateFrom').val(this.dateFrom);
-    this.dateTo = new Date();
     $('#dateTo').val(this.dateTo);
     $('#dateFrom').on('change',async()=>{
       this.dateFrom = $('#dateFrom').val();

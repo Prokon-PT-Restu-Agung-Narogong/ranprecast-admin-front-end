@@ -1,7 +1,10 @@
 import sidebar from "../../components/layouts/sidebar.js";
+import ContentData from '../../../data/ContentData';
 
 const updatecontact = {
   async init() {
+    this.contentData = new ContentData();
+    this.data = await this.contentData.getDataKontak();
     return `
     <section class="w-1/6 sidebar">
     	${sidebar.init()}
@@ -16,14 +19,14 @@ const updatecontact = {
     <div class="w-full min-h-full bg-gray-200 flex">
       <div class="block p-12 mt-[35px] mx-auto rounded-md bg-white w-11/12 lg:h-[600px]">
         <div class="md:flex flex-col md:w-full md:h-full">
-            <form action="/action_page.php">
+            <form id="form" method="POST" enctype="multipart/form-data" action="" >
                 <div class="md:grid gap-2 grid-cols-2 my-4 md:w-full">
                 <div>
                     <div>
                     <p><b>Alamat 1</b></p>
                     </div>
                     <div>
-                    <input type="text" id="large-input" class="block w-full p-4  border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-blue-500  dark:border-gray-300 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                    <input type="text" value="${this.data.alamat_1}" id="alamat_1" class="block w-full p-4  border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-blue-500  dark:border-gray-300 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500">
                     </div>
                 </div>
                 <div class=" md:flex flex-col">
@@ -31,7 +34,7 @@ const updatecontact = {
                         <p><b>Alamat 2</b></p>
                     </div>
                     <div>
-                    <input type="text" id="large-input" class="block w-full p-4  border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-blue-500  dark:border-gray-300 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                    <input type="text" value="${this.data.alamat_2}" id="alamat_2" class="block w-full p-4  border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-blue-500  dark:border-gray-300 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500">
                     </div>
                 </div>
                 </div>
@@ -42,7 +45,7 @@ const updatecontact = {
                             <p><b>Telepon</b></p>
                         </div>
                         <div>
-                            <input type="number" id="large-input" class="block w-full p-4  border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-blue-500  dark:border-gray-300 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            <input type="text" value="${this.data.telepon}"  id="telepon" class="block w-full p-4  border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-blue-500  dark:border-gray-300 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500">
                         </div>
                     </div>
                     <div class=" md:flex flex-col">
@@ -50,7 +53,7 @@ const updatecontact = {
                             <p><b>Email</b></p>
                         </div>
                         <div>
-                            <input type="email" id="large-input" class="block w-full p-4  border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-blue-500  dark:border-gray-300 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            <input type="email"  value="${this.data.email}" id="email" class="block w-full p-4  border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-blue-500  dark:border-gray-300 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500">
                         </div>
                     </div>
                 </div>
@@ -61,7 +64,7 @@ const updatecontact = {
                             <p><b>Whatsapp 1</b></p>
                         </div>
                         <div>
-                            <input type="number" id="large-input" class="block w-full p-4  border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-blue-500  dark:border-gray-300 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            <input type="text" value="${this.data.whatsapp_1}" id="whatsapp_1" class="block w-full p-4  border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-blue-500  dark:border-gray-300 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500">
                         </div>
                     </div>
                     <div class=" md:flex flex-col">
@@ -69,7 +72,7 @@ const updatecontact = {
                             <p><b>Whatsapp 2</b></p>
                         </div>
                         <div>
-                            <input type="number" id="large-input" class="block w-full p-4  border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-blue-500  dark:border-gray-300 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            <input type="text" value="${this.data.whatsapp_2}" id="whatsapp_2" class="block w-full p-4  border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-blue-500  dark:border-gray-300 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500">
                         </div>
                     </div>
                 </div>
@@ -80,7 +83,7 @@ const updatecontact = {
                             <p><b>Link Instagram</b></p>
                         </div>
                         <div>
-                            <input type="text" id="large-input" class="block w-full p-4  border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-blue-500  dark:border-gray-300 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            <input type="text" value="${this.data.link_instagram}" id="link_instagram" class="block w-full p-4  border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-blue-500  dark:border-gray-300 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500">
                         </div>
                     </div>
                     <div class=" md:flex flex-col">
@@ -88,7 +91,7 @@ const updatecontact = {
                             <p><b>Link Youtube</b></p>
                         </div>
                         <div>
-                            <input type="text" id="large-input" class="block w-full p-4  border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-blue-500  dark:border-gray-300 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            <input type="text" value="${this.data.link_youtube}" id="link_youtube" class="block w-full p-4  border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-blue-500  dark:border-gray-300 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500">
                         </div>
                     </div>
                 </div>
@@ -106,7 +109,34 @@ const updatecontact = {
     </div>
 		`;
   },
+  postData(){
+    $('#form').submit((e)=>{
+      e.preventDefault()
+      let data = {
+          alamat_1 : $('#alamat_1').val(),
+          alamat_2 : $('#alamat_2').val(),
+          telepon : $('#telepon').val(),
+          email : $('#email').val(),
+          whatsapp_1 : $('#whatsapp_1').val(),
+          whatsapp_2 : $('#whatsapp_2').val(),
+          link_instagram : $('#link_instagram').val(),
+          link_youtube : $('#link_youtube').val(),
+      }
+      this.contentData.requestPOSTWithoutForm({
+        request : 'kontak',
+        data : data
+      }).then((e)=>{
+        console.log(e.status)
+        if(e.status == 200){
+          window.location.href = "#/contact"
+        }else{
+          alert(e.message)
+        }
+      })
+    })
+  },
   async afterRender() {
+    this.postData();
     sidebar.afterRender();
   },
 };

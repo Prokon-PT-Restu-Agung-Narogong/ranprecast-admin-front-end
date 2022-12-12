@@ -39,24 +39,31 @@ const sidebar = {
 							<img alt="icon-left" src="icons/arrow-left.png" class="konten-arrow ml-auto mr-4">
 						</div>
 						<ul class="konten-list hidden">
-							<li class="pl-[37px] flex  py-[10px] bg-red-900">
-								<img alt="icon" src="icons/sidebar-4-1.png" width="20" height="20" class="w-[20px] h-[20px]">
-								<span class="ml-[15px]">Tentang Perusahaan</span>
-							</li>
-							<li class="pl-[37px] flex  py-[10px] bg-red-900">
-								<img alt="icon" src="icons/sidebar-4-2.png" width="20" height="20" class="w-[20px] h-[20px]">
-								<span class="ml-[15px]">Kontak Perusahaan</span>
-							</li>
+							<a href="#/about">
+								<li class="pl-[37px] flex  py-[10px] bg-red-900">
+									<img alt="icon" src="icons/sidebar-4-1.png" width="20" height="20" class="w-[20px] h-[20px]">
+									<span class="ml-[15px]">Tentang Perusahaan</span>
+								</li>
+							</a>
+							<a href="#/contact">
+								<li class="pl-[37px] flex  py-[10px] bg-red-900">
+									<img alt="icon" src="icons/sidebar-4-2.png" width="20" height="20" class="w-[20px] h-[20px]">
+									<span class="ml-[15px]">Kontak Perusahaan</span>
+								</li>
+							</a>
 							<a href="#/portofolio">
 								<li class="pl-[37px] flex  py-[10px] bg-red-900">
 									<img alt="icon" src="icons/sidebar-4-3.png" width="20" height="20" class="w-[20px] h-[20px]">
 									<span class="ml-[15px]">Portofolio</span>
 								</li>
 							</a>
-							<li class="pl-[37px] flex  py-[10px] bg-red-900">
-								<img alt="icon" src="icons/sidebar-4-4.png" width="20" height="20" class="w-[20px] h-[20px]">
-								<span class="ml-[15px]">Keunggulan</span>
-							</li>
+
+							<a href="#/superiority">
+								<li class="pl-[37px] flex  py-[10px] bg-red-900">
+									<img alt="icon" src="icons/sidebar-4-4.png" width="20" height="20" class="w-[20px] h-[20px]">
+									<span class="ml-[15px]">Keunggulan</span>
+								</li>
+							</a>
 						</ul>
 					</li>
 
