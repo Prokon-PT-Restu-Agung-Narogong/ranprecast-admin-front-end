@@ -13,6 +13,12 @@ class ContentData extends APIConfig{
 		})
 	}
 
+	async getDataQualityByID(id){
+		return await this.requestGET({
+			request : `keunggulan/${id}`,
+		})
+	}
+
 	async getDataPortofolio(){
 		return await this.requestGET({
 			request : "portofolio",

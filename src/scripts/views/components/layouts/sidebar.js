@@ -4,7 +4,7 @@ const sidebar = {
 			<nav class="w-full h-[100vh] bg-red-600 flex flex-col">
 				<ul class="w-full text-white mx-auto mt-[87px] flex flex-col">
 					<a href="#/home">
-						<li class="flex pl-[37px] py-[10px] hover:bg-gray-600">
+						<li class="flex pl-[37px] py-[10px] hover:bg-red-200">
 							<img alt="icon" src="icons/sidebar-1.png" width="20" height="20" class="w-[20px] h-[20px]">
 							<span class="ml-[15px]">Dashboard</span>
 						</li>

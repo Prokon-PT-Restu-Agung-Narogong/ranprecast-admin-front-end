@@ -11,7 +11,6 @@ const dashboard = {
     this.dateFrom = this.dateFrom.toISOString().substring(0,10);
     this.dateTo = new Date();
     this.dateTo = this.dateTo.toISOString().substring(0,10);
-    console.log(this.dateFrom);
     this.filterBy = 'date';
     return `
     <section class="w-1/6 sidebar">
@@ -737,12 +736,13 @@ const dashboard = {
     })
   },
   async json2Excel(){
+    let date = new Date();
     const data = await this.filterDashboard({
       dateFrom : this.dateFrom,
       dateTo : this.dateTo,
       filterBy : 'all'
     })
-    const fileName = 'download'
+    const fileName = `Data Visitors ${this.dateFrom}_${this.dateTo}_${date.getTime()}`
     const exportType =  exportFromJSON.types.xls
     exportFromJSON({ data, fileName, exportType })
   },

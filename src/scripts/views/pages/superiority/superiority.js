@@ -46,7 +46,7 @@ const superiority = {
         deskripsi: e.deskripsi,
         gambar: `<img src="${e.icon}" class="w-[25px] h-[25px] object-cover">`,
         aksi: `
-          <a href="#/update-portofolio/${e.id}" class="w-full">
+          <a href="#/update-superiority/${e.id}" class="w-full">
             <button class="p-2 bg-blue-500"><img alt="icon" src="icons/edit.png" class="w-[20px] h-[20px]"/></button>
           </a>
           `,

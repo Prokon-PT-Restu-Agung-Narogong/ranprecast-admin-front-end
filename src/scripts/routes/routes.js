@@ -14,6 +14,7 @@ import updateabout from "../views/pages/about/updateabout";
 import contact from "../views/pages/contact/contact";
 import updatecontact from "../views/pages/contact/updatecontact";
 import superiority from "../views/pages/superiority/superiority";
+import updateSuperiority from "../views/pages/superiority/updateSuperiority";
 
 
 const routes = {
@@ -35,6 +36,7 @@ const routes = {
   "/contact": contact,
   "/update-contact": updatecontact,
   "/superiority": superiority,
+  "/update-superiority/:id": updateSuperiority,
 };
 
 export default routes;
