@@ -3,6 +3,7 @@ import '../styles/main.css';
 import '../styles/dataTables.jqueryui.min.css';
 import 'lazysizes';
 import 'lazysizes/plugins/parent-fit/ls.parent-fit';
+import 'jquery-validation';
 
 const app = new App({
   header: document.querySelector('header'),

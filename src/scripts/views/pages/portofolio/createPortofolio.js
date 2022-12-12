@@ -1,5 +1,7 @@
 import sidebar from '../../components/layouts/sidebar.js';
 import ContentData from '../../../data/ContentData';
+import navbar from "../../components/layouts/navbar";
+
 const CreatePortofolio = {
   async init() {
     this.contentData = new ContentData()
@@ -8,11 +10,7 @@ const CreatePortofolio = {
     	${sidebar.init()}
     </section>
     <section class="w-5/6 content">
-    	<div class="w-full h-[84px] flex">
-    		<h1 class="my-auto ml-[24px] text-[24px] font-[600] font-primary basis-3/4">Update Produk</h1>
-    		<p class="my-auto mr-[50px] text-[16px] text-right font-[600] font-primary basis-1/4">Hello, Adminxx</p>
-    	</div>
-    </div>
+    	${navbar.init("Tambah Portofolio")}
     <div class="w-full min-h-full bg-gray-200 flex">
       <div class="block p-6 mt-[35px] mx-auto rounded-md bg-white w-11/12 h-[610px]">
         <form method="POST" id="form_portofolio" enctype="multipart/form-data" action="">
@@ -40,28 +38,41 @@ const CreatePortofolio = {
     </div>
 		`;
   },
+  validateForm(){
+    $("#form_portofolio").validate({
+      rules: {
+        deskripsi : {
+          required : true,
+          maxlength : 1675,
+        },
+      }
+    });
+  },
   postData(){
     $('#form_portofolio').submit((e)=>{
       let photo = document.getElementById("gambar_portofolio").files[0];
-      e.preventDefault()
-      let formData = new FormData();
-      formData.append("image", photo);
-      formData.append("deskripsi", $('#deskripsi_portofolio').val());
-      this.contentData.requestPOST({
-        request : 'portofolio/add',
-        data : formData
-      }).then((e)=>{
-        if(e.status == 200){
-          window.location.href = "#/portofolio"
-        }else{
-          alert("Gagal Terkirim")
-        }
-      })
+      if(photo != undefined){
+        e.preventDefault()
+        let formData = new FormData();
+        formData.append("image", photo);
+        formData.append("deskripsi", $('#deskripsi_portofolio').val());
+        this.contentData.requestPOST({
+          request : 'portofolio/add',
+          data : formData
+        }).then((e)=>{
+          if(e.status == 200){
+            window.location.href = "#/portofolio"
+          }else{
+            alert("Gagal Terkirim")
+          }
+        })  
+      }
     })
   },
   
   async afterRender() {
     this.postData()
+    this.validateForm()
   	sidebar.afterRender();
   },
 };

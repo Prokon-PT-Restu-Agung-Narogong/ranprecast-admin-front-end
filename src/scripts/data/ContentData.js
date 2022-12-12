@@ -2,21 +2,20 @@ import APIConfig from '../config/APIConfig';
 
 class ContentData extends APIConfig{
 	// start request dari /api
-	async getDataHero(){
+	async getDataTentang(){
 		return await this.requestGET({
-			request : "hero",
+			request : "tentang",
 		})
 	}
-
-	async getDataVisiMisi(){
-		return await this.requestGET({
-			request : "visimisi",
-		})
-	}
-
 	async getDataQuality(){
 		return await this.requestGET({
 			request : "keunggulan",
+		})
+	}
+
+	async getDataQualityByID(id){
+		return await this.requestGET({
+			request : `keunggulan/${id}`,
 		})
 	}
 
@@ -56,6 +55,17 @@ class ContentData extends APIConfig{
 	async getDataVisitors(){
 		return await this.requestGET({
 			request : "visitors",
+		})
+	}
+	async getDataUserAdmin(){
+		return await this.requestGET({
+			request : "useradmin",
+		})
+	}
+
+	async getDataUserAdminByID(id){
+		return await this.requestGET({
+			request : `useradmin/${id}`,
 		})
 	}
 }

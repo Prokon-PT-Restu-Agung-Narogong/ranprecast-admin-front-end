@@ -1,6 +1,8 @@
 import sidebar from '../../components/layouts/sidebar.js';
 import dt from 'datatables.net';
 import ContentData from '../../../data/ContentData';
+import navbar from "../../components/layouts/navbar";
+
 const protofolio = {
   async init() {
     this.dataAPI = new ContentData();
@@ -10,11 +12,7 @@ const protofolio = {
     	${sidebar.init()}
     </section>
     <section class="w-5/6 content">
-    	<div class="w-full h-[84px] flex">
-    		<h1 class="my-auto ml-[24px] text-[24px] font-[600] font-primary basis-3/4">Portofolio</h1>
-    		<p class="my-auto mr-[24px] text-[16px] text-right font-[600] font-primary basis-1/4">Hello, Adminxx</p>
-    	</div>
-    </div>
+     ${navbar.init("Portofolio")}
     <div class="w-full min-h-full bg-gray-200 flex p-[12px]">
       <div class="block p-9 mt-[35px] mx-auto rounded-md bg-white w-11/12 min-h-[610px]">
         <div class="flex">
@@ -97,7 +95,7 @@ const protofolio = {
             {
                 "data": "deskripsi",
                 "orderable": true,
-                "className": "align-middle"
+                "className": "align-middle truncate"
             },
             {
                 "data": "gambar",

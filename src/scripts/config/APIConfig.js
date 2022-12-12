@@ -2,7 +2,7 @@ class APIConfig {
     baseUrl = "";
 
     constructor(){
-        this.baseUrl = "https://api.ranprecast.com/api"
+        this.baseUrl = "https://gateway.ranprecast.com/api"
     }
 
     async requestGET({request}) {

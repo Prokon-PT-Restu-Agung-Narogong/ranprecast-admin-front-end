@@ -1,6 +1,8 @@
 import sidebar from '../../components/layouts/sidebar.js';
 import ContentData from '../../../data/ContentData';
 import UrlParser from '../../../routes/url-parser';
+import navbar from "../../components/layouts/navbar";
+
 const UpdateProducts = {
   async init() {
     this.id = UrlParser.parseActiveUrlWithoutCombiner().id;
@@ -12,11 +14,7 @@ const UpdateProducts = {
       ${sidebar.init()}
     </section>
     <section class="w-5/6 content">
-      <div class="w-full h-[84px] flex">
-        <h1 class="my-auto ml-[24px] text-[24px] font-[600] font-primary basis-3/4">Tambah Produk</h1>
-        <p class="my-auto mr-[50px] text-[16px] text-right font-[600] font-primary basis-1/4">Hello, Adminxx</p>
-      </div>
-    </div>
+    ${navbar.init("Update Produk")}
     <div class="w-full min-h-full bg-gray-200 flex">
       <div class="block p-6 mt-[35px] mx-auto rounded-md bg-white w-11/12 h-[610px]">
         <form method="POST" id="form_produk" enctype="multipart/form-data" action="">
@@ -29,31 +27,31 @@ const UpdateProducts = {
             </div>
             <div class="form-group mb-[10px] col-span-1">
               <label for="namaProduk" class="form-label inline-block mb-2 font-semibold text-gray-700 text-[12px]">Nama Produk <a class="text-red-500 font-bold">*</a></label>
-              <input required type="text" class="form-control block w-full px-3 py-3 text-[12px] font-normal text-gray-700 bg-white border border-solid border-gray-300 rounded transition ease-in-out m-0
+              <input required type="text" name="nama" class="form-control block w-full px-3 py-3 text-[12px] font-normal text-gray-700 bg-white border border-solid border-gray-300 rounded transition ease-in-out m-0
                 focus:text-gray-700 focus:bg-white focus:outline-none" id="namaProduk"
                 aria-describedby="xxx" placeholder="Examples : Barrier" value="${this.data.name}">
             </div>
             <div class="form-group mb-[10px] col-span-2">
               <label for="deskripsiProduk" class="form-label inline-block mb-2 font-semibold text-gray-700 text-[12px]">Deskripsi <a class="text-red-500 font-bold">*</a></label>
-              <textarea required type="text" rows="4" class="form-control block w-full px-3 py-3 text-[12px] font-normal text-gray-700 bg-white border border-solid border-gray-300 rounded transition ease-in-out m-0
+              <textarea required type="text" name="deskripsi" rows="4" class="form-control block w-full px-3 py-3 text-[12px] font-normal text-gray-700 bg-white border border-solid border-gray-300 rounded transition ease-in-out m-0
                 focus:text-gray-700 focus:bg-white focus:outline-none" id="deskripsiProduk"
                 aria-describedby="xxx" placeholder="Examples : Barrier adalah produk precast yang digunakan sebagai pembatas jalan">${this.data.desc}</textarea>
             </div>
             <div class="form-group mb-[10px]">
               <label for="spesifikasiProduk" class="form-label inline-block mb-2 font-semibold text-gray-700 text-[12px]">Spesifikasi <a class="text-red-500 font-bold italic">* Gunakan ,(koma) untuk setiap item</a></label>
-              <textarea required type="text" rows="4" class="form-control block w-full px-3 py-3 text-[12px] font-normal text-gray-700 bg-white border border-solid border-gray-300 rounded transition ease-in-out m-0
+              <textarea required type="text" rows="4" name="spesifikasi" class="form-control block w-full px-3 py-3 text-[12px] font-normal text-gray-700 bg-white border border-solid border-gray-300 rounded transition ease-in-out m-0
                 focus:text-gray-700 focus:bg-white focus:outline-none" id="spesifikasiProduk"
                 aria-describedby="xxx" placeholder="Examples : Mutu beton K-350,Mutu besi U-50 Hard Drawn Deformed Wire (HDDW),Cetak Basah dengan getaran frekuensi tinggi,System join male-female,">${this.data.specs}</textarea>
             </div>
             <div class="form-group mb-[10px]">
               <label for="jenisProduk" class="form-label inline-block mb-2 font-semibold text-gray-700 text-[12px]">Jenis <a class="text-red-500 font-bold italic">* Gunakan ,(koma) untuk setiap item</a></label>
-              <textarea required type="text" rows="4" class="form-control block w-full px-3 py-3 text-[12px] font-normal text-gray-700 bg-white border border-solid border-gray-300 rounded transition ease-in-out m-0
+              <textarea required type="text" rows="4" name="jenis" class="form-control block w-full px-3 py-3 text-[12px] font-normal text-gray-700 bg-white border border-solid border-gray-300 rounded transition ease-in-out m-0
                 focus:text-gray-700 focus:bg-white focus:outline-none" id="jenisProduk"
                 aria-describedby="xxx" placeholder="Examples : Lebar : 60cm dan 80cm,Panjang : 100cm dan 120cm,Tinggi : 70cm s.d 120cm,">${this.data.jenis}</textarea>
             </div>
             <div class="form-group mb-[10px]">
               <label for="stokProduk" class="form-label inline-block mb-2 font-semibold text-gray-700 text-[12px]">Stok <a class="text-red-500 font-bold">*</a></label>
-              <input required type="number" class="form-control block w-full px-3 py-3 text-[12px] font-normal text-gray-700 bg-white border border-solid border-gray-300 rounded transition ease-in-out m-0
+              <input required type="number" name="stok" class="form-control block w-full px-3 py-3 text-[12px] font-normal text-gray-700 bg-white border border-solid border-gray-300 rounded transition ease-in-out m-0
                 focus:text-gray-700 focus:bg-white focus:outline-none" id="stokProduk"
                 aria-describedby="xxx" placeholder="" value="${this.data.stok}">
             </div>
@@ -73,6 +71,28 @@ const UpdateProducts = {
       </div>
     </div>
     `;
+  },
+  validateForm(){
+    $("#form_produk").validate({
+      rules: {
+        nama : {
+          required : true,
+          maxlength : 39,
+        },
+        deskripsi: {
+          required : true,
+          maxlength : 1675
+        },
+        spesifikasi : {
+          required : true,
+          maxlength : 925
+        },
+        jenis : {
+          required : true,
+          maxlength : 925
+        }
+      }
+    });
   },
   postData(){
     $('#form_produk').submit((e)=>{
@@ -100,6 +120,7 @@ const UpdateProducts = {
   },
   async afterRender() {
     this.postData();
+    this.validateForm()
     sidebar.afterRender();
   },
 };
