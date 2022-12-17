@@ -50,12 +50,6 @@ const UpdateProducts = {
                 aria-describedby="xxx" placeholder="Examples : Lebar : 60cm dan 80cm,Panjang : 100cm dan 120cm,Tinggi : 70cm s.d 120cm,">${this.data.jenis}</textarea>
             </div>
             <div class="form-group mb-[10px]">
-              <label for="stokProduk" class="form-label inline-block mb-2 font-semibold text-gray-700 text-[12px]">Stok <a class="text-red-500 font-bold">*</a></label>
-              <input required type="number" name="stok" class="form-control block w-full px-3 py-3 text-[12px] font-normal text-gray-700 bg-white border border-solid border-gray-300 rounded transition ease-in-out m-0
-                focus:text-gray-700 focus:bg-white focus:outline-none" id="stokProduk"
-                aria-describedby="xxx" placeholder="" value="${this.data.stok}">
-            </div>
-            <div class="form-group mb-[10px]">
               <label for="gambarProduk" class="form-label inline-block mb-2 font-semibold text-gray-700 text-[12px]">Gambar <a class="text-red-500 font-bold">*</a></label>
               <input type="file" class="form-control block w-full py-3 text-[12px] font-normal text-gray-700 bg-white transition ease-in-out m-0
                 focus:text-gray-700 focus:bg-white focus:outline-none" id="gambarProduk"
@@ -64,7 +58,7 @@ const UpdateProducts = {
             <div class="grid col-span-2 place-items-center">
               <button type="submit" class="px-7 py-3 place-items-center bg-green-500 text-white font-semibold text-[13px]
                 leading-tight rounded mx-auto hover:bg-green-500 hover:shadow-md focus:bg-green-500 focus:shadow-md focus:outline-none focus:ring-0
-                active:bg-green-500 active:shadow-md transition duration-150 ease-in-out">Tambahkan Produk</button>
+                active:bg-green-500 active:shadow-md transition duration-150 ease-in-out">Update Produk</button>
             </div>
           </div>
         </form>
@@ -104,7 +98,7 @@ const UpdateProducts = {
       formData.append("deskripsi", $('#deskripsiProduk').val());
       formData.append("specs", $('#spesifikasiProduk').val());
       formData.append("jenis", $('#jenisProduk').val());
-      formData.append("stok", $('#stokProduk').val());
+      formData.append("stok", 0);
       formData.append("image", photo);
       this.contentData.requestPOST({
         request : 'produk',
