@@ -431,15 +431,6 @@ const dashboard = {
       {
       type: 'line',
       options: {
-        animations: {
-          tension: {
-            duration: 1000,
-            easing: 'easeInExpo',
-            from: 0.8,
-            to: 0.3,
-            loop: true,
-          }
-        }
       },
       data: {
         labels: dataReal.map((e)=> e.day),
@@ -460,15 +451,6 @@ const dashboard = {
       {
       type: 'line',
       options: {
-        animations: {
-          tension: {
-            duration: 1000,
-            easing: 'easeInExpo',
-            from: 0.8,
-            to: 0.3,
-            loop: true
-          }
-        }
       },
       data: {
         labels: dataReal.map((e)=> e.day),
@@ -496,15 +478,6 @@ const dashboard = {
       {
       type: 'line',
       options: {
-        animations: {
-          tension: {
-            duration: 1000,
-            easing: 'easeInExpo',
-            from: 0.8,
-            to: 0.3,
-            loop: true
-          }
-        }
       },
       data: {
         labels: Object.keys(dataReal),
