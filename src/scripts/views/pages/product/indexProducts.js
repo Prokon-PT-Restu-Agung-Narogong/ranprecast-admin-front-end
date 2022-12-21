@@ -30,7 +30,6 @@ const products = {
                 <th class="px-5 py-2 w-[20%]">Spesifikasi</th>
                 <th class="px-5 py-2 w-[10%]">Jenis</th>
                 <th class="px-5 py-2 w-[10%]">Gambar</th>
-                <th class="px-5 py-2 w-[10%]">Stok</th>
                 <th class="px-5 py-2 w-[15%]">Aksi</th>
               </tr>
             </thead>
@@ -61,7 +60,6 @@ const products = {
           deskripsi : e.desc,
           specs : customSpecs(e.specs),
           jenis : customSpecs(e.jenis),
-          stok : e.stok,
           gambar : `<img src="${e.img}" class="w-[100px] h-[100px] object-cover">`,
           aksi : `
           <a href="#/update-product/${e.id}">
@@ -124,11 +122,6 @@ const products = {
             },
             {
                 "data": "gambar",
-                "orderable": false,
-                "className": "align-middle break-all truncate"
-            },
-            {
-                "data": "stok",
                 "orderable": false,
                 "className": "align-middle break-all truncate"
             },

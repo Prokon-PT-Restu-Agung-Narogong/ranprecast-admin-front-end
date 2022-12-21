@@ -25,7 +25,6 @@ class App {
     user = JSON.parse(user) || null
     if(user != undefined){
         dataUserAdmin.forEach((e)=>{
-          console.log(e.username == user.username && e.password == user.password)
           if(e.username == user.username && e.password == user.password ){
             return true;
           }
